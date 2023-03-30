@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+    }
+
+    .page-background {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      background-color: white;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 16px;
+      margin: 0 auto;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 200px;
+      background-image: url('https://images.unsplash.com/photo-1631509824910-82791a0e43d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1092&q=80');
+      background-size: cover;
+      background-position: center;
+      border-radius: 16px;
+    }
+
+    .heading {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      margin: 20px 0 8px 0;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .plan {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+ .plan.selected {
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  color: #333;
+  border: 1px solid #5732e4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.plan.selected .plan-price {
+  color: #333;
+}
+
+.plan.selected .discount-badge {
+  background-color: #e45032;
+  color: #fff;
+}
+
+
+
+    .plan-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .plan-price {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+
+    .discount-badge {
+      display: inline-block;
+      background-color: #e45032;
+      color: #fff;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 5px;
+    }
+
+    .plan-details {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .plan-details.discount {
+      font-weight: 700;
+      color: #e45032;
+    }
+    
+    
+
+    .cta-button {
+      display: block;
+      width: 100%;
+      background-color: #5732e4;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      padding: 25px 0;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      text-decoration: none;
+    }
+
+    .footer-text {
+      font-size: 14px;
+      color:
+      #666;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .small-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .small-button {
+      font-size: 12px;
+      font-weight: 500;
+      color: #999;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .close-button {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-color: #f0f0f0;
+      color: #666;
+      text-align: center;
+      line-height: 22px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .unlimited-renders {
+  font-size: 14px;
+  font-weight: 400;
+  color: #999;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.plan.selected .unlimited-renders {
+  color: #fff;
+}
+
+    .free-trial-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: #666;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+    
+  </style>
+  <script>
+    function toggleSelected(id) {
+      const planElements = document.querySelectorAll('.plan');
+      planElements.forEach(plan => {
+        if (plan.id === id) {
+          plan.classList.add('selected');
+        } else {
+          plan.classList.remove('selected');
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="page-background">
+    <div class="container">
+      <a href="#" class="close-button">&times;</a>
+      <div class="hero-image"></div>
+      <h1 class="heading">Try Premium</h1>
+      <p class="subtitle">Unlock unlimited renders and all features</p>
+
+      <div class="plan selected" id="monthly" onclick="toggleSelected('monthly')">
+        <p class="plan-price">$14.99/month </span></p>
+         <p class="plan-details">3-days free trial</p>
+        
+      </div>
+
+      <div class="plan" id="yearly" onclick="toggleSelected('yearly')">
+        <p class="plan-price">$107.99/year<span class="discount-badge">40% OFF</span></span></p>
+     
+         <p class="plan-details">3-days free trial</p>
+      </div>
+
+<p class="free-trial-text">Free trial opens 20 renders per day for 3 days</p>
+
+
+
+      <a href="#" class="cta-button">Continue</a>
+      <p class="footer-text">Cancel anytime</p>
+
+      <div class="small-buttons">
+        <a href="#" class="small-button">Restore</a>
+        <a href="#" class="small-button">Terms</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
